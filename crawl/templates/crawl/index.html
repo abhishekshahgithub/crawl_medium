@@ -1,0 +1,21 @@
+<h1> CRAWLING MEDIUM.com </h1>
+
+{% for i in search %}
+
+{% if forloop.last %}
+	https://medium.com/search?q={{ i.tag }}
+{% endif %}	
+
+{% endfor %}	
+
+{% block content %}
+<form method="POST" >{% csrf_token %}
+
+{{ form.as_p }}
+
+<input type='submit' value='Save' />
+</form>
+{% endblock %}
+
+
+{{ data2 }}
